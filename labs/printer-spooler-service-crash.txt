@@ -1,6 +1,6 @@
- 🧪 Lab 4: Printer Not Working – Print Spooler Service Crash
+🧪 Lab 4: Printer Not Working – Print Spooler Service Crash
 
- 📝 Summary
+📝 Summary
 
 In this lab, I simulated a real-world printer problem where the Print Spooler service stops, and print jobs don’t work. I used a built-in printer (Microsoft XPS Document Writer) to test how Windows handles print jobs and what happens when the spooler is stopped.
 
