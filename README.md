@@ -13,15 +13,15 @@ I worked on:
 
  Lab  Title  What It Covers 
 
- ✅ [Lab 1](labs/logon-issue-password-reset.md) 
+ ✅ [Lab 1](labs/labslogon-issue-password-reset.txt) 
  Login Not Working 
  Fixed a login issue caused by password reset flag
  
- ✅ [Lab 2](labs/folder-permission-denied.md)  
+ ✅ [Lab 2](labs/folder-permission-denied.txt)  
 Access Denied to Shared Folder  
 Solved file access issue using NTFS and Share permissions 
 
- ✅ [Lab 3](labs/gpo-logon-denied.md)  
+ ✅ [Lab 3](labs/gpo-logon-denied.txt)  
 User Blocked by GPO  
 Fixed Group Policy that stopped user from logging in 
 
