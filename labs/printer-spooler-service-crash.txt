@@ -1,0 +1,74 @@
+ 🧪 Lab 4: Printer Not Working – Print Spooler Service Crash
+
+ 📝 Summary
+
+In this lab, I simulated a real-world printer problem where the Print Spooler service stops, and print jobs don’t work. I used a built-in printer (Microsoft XPS Document Writer) to test how Windows handles print jobs and what happens when the spooler is stopped.
+
+
+
+ 🎯 Scenario
+
+> “User clicks print, but nothing happens. There’s no error message. Printer appears normal.”
+
+This is common in offices when the print spooler service crashes. In this lab, I recreated this issue and fixed it.
+
+
+
+ 🛠️ What I Used
+
+- Windows 10 Client VM
+- Built-in printer: Microsoft XPS Document Writer
+- Tools:
+  - Control Panel → Devices and Printers
+  - services.msc (to stop/start Print Spooler)
+  - Event Viewer → Application Log
+
+
+
+ 🧪 What I Did
+
+1. Opened Control Panel → Devices and Printers  
+2. Found Microsoft XPS Document Writer and set it as the default printer  
+3. Opened Printer Properties → Clicked Print Test Page  
+4. Opened the print queue (See what’s printing) — it was empty at first  
+5. Went to services.msc → Stopped the Print Spooler service  
+6. Tried to print again → nothing worked (simulated the “broken printer”)  
+7. Started the Print Spooler again → tested printing → now it worked  
+8. Checked Event Viewer → looked for spooler-related events under Application logs
+
+
+
+ 🔍 What I Saw
+
+- When Print Spooler is stopped:
+  - Print jobs don’t appear
+  - Printer test page fails silently
+- After restarting the service:
+  - Printer works again
+  - The print queue becomes responsive
+- In Event Viewer:
+  - Saw logs under Application (Event ID 7031 or similar may appear — depends on timing)
+
+
+
+ ✅ Final Result
+
+- Simulated a printer failure without a real printer
+- Learned how to:
+  - Restart Print Spooler
+  - Use built-in printers for testing
+  - Check Event Viewer logs for printer issues
+
+
+
+ 🧠 Lessons Learned
+
+- Print Spooler is critical for all Windows printing
+- When it’s off, users usually don’t get a clear error — it “just doesn’t work”
+- Event Viewer and services.msc are key tools to fix this quickly
+- Even with no real printer, I can test printing behavior using built-in options
+
+
+
+
+
