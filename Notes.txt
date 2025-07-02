@@ -1,0 +1,3 @@
+.\student
+-> The dot . tells Windows: “Use this computer’s local accounts”
+uses case: when you are not able to login into your pc as a administrator 
