@@ -1,0 +1,116 @@
+ 🧪 Lab 3: Group Policy Misconfiguration – User Cannot Log In
+
+ 📝 Summary
+
+Simulated a real-world scenario where user `jthomas`, placed in the `Marketing` OU, was unable to log in due to a misconfigured Group Policy. This lab demonstrates how to identify, analyze, and correct a GPO that unintentionally blocks interactive logon.
+
+
+
+ 🎯 Scenario
+
+> "User `jthomas` cannot log in to their domain-joined PC. This issue started after a Group Policy update. Other users are not affected."
+
+
+
+ 🛠️ Environment
+
+| Component     | Details                            |
+||-|
+| Domain        | `DHWANIT.LOCAL`                    |
+| DC VM         | Windows Server 2019 (with AD + GPMC) |
+| Client VM     | Windows 10 (domain-joined)         |
+| User          | `jthomas` (located in `Marketing` OU) |
+| GPO Name      | `DenyNonAdminLogon` (or your custom name) |
+
+
+
+ 🧰 Tools Used
+
+| Tool           | Purpose |
+|-||
+| GPMC       | Linked and modified GPOs, checked filtering and scope |
+| gpresult   | Verified which GPOs were applied to `jthomas` |
+| Event Viewer | Checked for logon failures or GPO processing errors |
+| ADUC       | Verified group membership and OU location |
+| rsop.msc (optional) | Reviewed resultant policy on client |
+
+
+
+ 🔍 Root Cause
+
+The GPO `DenyNonAdminLogon` was linked to the `Marketing` OU and configured to:
+- Deny log on locally for `Domain Users`
+- Or Allow log on locally only for `Administrators`
+
+Since `jthomas` is not an administrator and is a member of `Domain Users`, they were effectively blocked from interactive logon by the Group Policy.
+
+
+
+
+🧪 Steps Taken
+
+
+ 1. Created GPO to Simulate Misconfiguration
+
+- Created GPO: `DenyNonAdminLogon`
+- Configured:
+Computer Configuration →
+Policies →
+Windows Settings →
+Security Settings →
+Local Policies →
+User Rights Assignment →
+Deny log on locally → Domain Users
+
+
+- Linked GPO to the `Marketing` OU
+- Forced policy update with `gpupdate /force`
+
+
+
+ 2. Tested Login
+
+- Tried logging in as `jthomas` on the client VM
+- Login failed with message:  
+> "The sign-in method you're trying to use isn't allowed..."
+
+
+
+ 3. Investigated the Issue
+
+- On client:
+- Ran `gpresult /r` → confirmed the GPO `DenyNonAdminLogon` was applied
+- Verified that user is part of `Domain Users`
+- On DC:
+- Used GPMC to confirm GPO was scoped to Marketing OU
+- Used Event Viewer → `Security` log → Event ID 4625 was absent (not a failed authentication)
+- Used `Effective Access` to test resulting permissions for `jthomas`
+
+
+
+ 4. Resolved the Problem
+
+- Modified GPO:
+- Removed `Domain Users` from “Deny log on locally”
+- Or added `Domain Users` to “Allow log on locally”
+- Re-applied policy with `gpupdate /force`
+- Rebooted client
+- Retested login → ✅ Success
+
+
+
+ ✅ Outcome
+
+- `jthomas` was able to log in after correcting the misapplied logon restriction
+- No changes were made to user or OU placement
+- GPO was corrected, not removed — maintaining proper policy enforcement
+
+
+
+ 🧠 Lessons Learned
+
+- GPO settings for login rights are common culprits in access issues
+- `gpresult /r` is essential for confirming actual policy application
+- GPMC allows you to audit filtering, security scope, and inheritance
+- You should never delete a GPO in production — always fix scope or security
+- GPO misconfigurations can silently break user access without logging authentication failures
