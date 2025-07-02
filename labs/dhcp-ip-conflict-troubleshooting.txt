@@ -1,0 +1,93 @@
+ 🧪 Lab 6: DHCP Troubleshooting – IP Conflict Simulation
+
+ 📝 Summary
+
+In this lab, I simulated a real-world DHCP issue where two devices on the same network use the same IP address. This causes an IP conflict, and usually results in loss of connectivity. I used a DHCP-assigned client and a manually configured static IP to recreate the problem, then resolved it by correcting the IP configuration.
+
+
+
+ 🎯 Scenario
+
+> "A user cannot connect to the network. Another user is also experiencing intermittent disconnects. You suspect an IP conflict caused by a static address within the DHCP range."
+
+
+
+ 🛠️ Environment
+
+| Component         | Details                            |
+
+| DHCP Server       | Domain Controller (10.180.33.101)  |
+| Scope Range       | 10.180.33.100 – 10.180.33.200      |
+| Client VM         | Windows 10 (used DHCP)             |
+| Second VM         | Windows 10 (set static IP manually)|
+
+
+
+ 🧰 Tools Used
+
+| Tool        | Purpose                                  |
+
+| ipconfig    | To release/renew IP addresses            |
+| arp -a      | To view IP-to-MAC mapping                |
+| Event Viewer| To check for IP conflict logs (ID 4199)  |
+| DHCP Console| To configure scope and monitor leases    |
+| Virtual Network Manager | To confirm VM NIC setup      |
+
+
+
+ 🧪 Steps Performed
+
+1. On DHCP Server (DC):
+   - Created scope: 10.180.33.100 – 10.180.33.200
+   - Router: 10.180.33.1
+   - DNS: 10.180.33.101
+   - Authorized and activated scope
+
+2. On Client VM A:
+   - Set to “Obtain IP address automatically”
+   - Used ipconfig /renew to get 10.180.33.100 from DHCP
+
+3. On Client VM B:
+   - Manually configured static IP: 10.180.33.100 (same as VM A)
+   - Subnet: 255.255.255.0
+   - Gateway: 10.180.33.1
+   - DNS: 10.180.33.101
+
+4. Monitored network behavior:
+   - No error popup appeared (expected in some VM setups)
+   - Loss of ping or inconsistent connectivity between devices
+
+5. Ran arp -a to inspect MAC → IP mappings
+   - Saw that both machines claimed same IP
+
+6. Resolved conflict:
+   - Switched static client back to DHCP
+   - Or changed static IP to 10.180.33.250 (outside DHCP range)
+   - Re-ran ipconfig /renew on Client A
+
+
+
+ 🔍 Logs Observed
+
+- Event Viewer did not show ID 4199 or 1001 in this case
+- Behavior confirmed through networking tools (arp, ipconfig)
+
+
+
+ ✅ Final Outcome
+
+- DHCP successfully assigned unique IPs to dynamic clients
+- IP conflict was simulated and resolved
+- Network stability restored after static IP moved out of scope
+
+
+
+ 🧠 Lessons Learned
+
+- DHCP ranges should never overlap with static IPs
+- Always check Event Viewer, arp, and ipconfig to verify network behavior
+- In virtual labs, not all conflict messages appear — but the issue still exists
+- Best practice: reserve IPs in DHCP or use static IPs outside the scope
+
+
+
