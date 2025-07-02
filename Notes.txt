@@ -1,3 +1,8 @@
 .\student
 -> The dot . tells Windows: “Use this computer’s local accounts”
 uses case: when you are not able to login into your pc as a administrator 
+
+Use Effective Access Tool to Preview Permissions (No Login Required)
+Click “Select a user” → type "username"
+Click “View effective access”
+

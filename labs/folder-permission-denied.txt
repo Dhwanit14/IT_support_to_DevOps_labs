@@ -1,0 +1,57 @@
+ 🧪 Lab 2: Access Denied to Shared Folder – NTFS vs Share Permissions
+
+ 📝 Summary
+
+Simulated a real-world access issue where user `jthomas`, a member of the `Marketing` group, was denied access to a shared folder over the network. The issue was traced to misconfigured NTFS or Share permissions and resolved using best practices.
+
+
+ 🎯 Scenario
+
+> "User `jthomas` is trying to access the shared folder `\\ServerName\DeptDocs` and receives an 'Access Denied' error. The folder should be accessible to all members of the `Marketing` group."
+
+
+
+ 🛠️ Environment
+
+| Component     | Details                         |
+|---------------|----------------------------------|
+| Server        | Windows Server 2019 (DC + File Server) |
+| Client        | Windows 10 domain-joined VM     |
+| Domain        | `DHWANIT.LOCAL`                 |
+| Shared Folder | `C:\Shares\DeptDocs`            |
+
+
+
+ 🧰 Tools Used
+
+| Tool | Purpose |
+|------|---------|
+| **ADUC (dsa.msc)** | Created user `jthomas` and `Marketing` group |
+| **File Explorer (Shift + Right-click)** | Tested access using "Run as different user" |
+| **Effective Access (Security tab)** | Verified calculated permissions |
+| **Folder Properties** | Configured NTFS and Share permissions |
+| **CMD + `runas`** | Launched Explorer as `jthomas` for testing |
+
+
+
+ 🔍 Root Cause
+
+The `DeptDocs` folder had either:
+
+- NTFS permissions that did **not include the `Marketing` group**
+- Or Share permissions limited to certain users/groups
+
+Because **effective permissions = most restrictive of NTFS and Share**, the user was blocked at one or both levels.
+
+
+ 🧪 Steps Taken
+
+ 1. Created Folder and User Environment
+
+- Created shared folder: `C:\Shares\DeptDocs`
+- Shared it as: `\\ServerName\DeptDocs`
+- Created user `jthomas`, added to group `Marketing`
+
+ 2. Simulated the Access Denied Issue
+
+- From client PC
