@@ -1,0 +1,81 @@
+ 🧪 Lab 7: Service Not Starting – Dependency Failure
+
+ 📝 Summary
+
+In this lab, I simulated a real-world situation where a service (Print Spooler) failed to start because of a misconfigured startup type or missing dependency. This mimics common desktop or server issues where applications fail due to dependent services being stopped, disabled, or crashing.
+
+
+
+ 🎯 Scenario
+
+> “A user says they can’t print, and their printer isn’t showing up. You check Services and notice that the Print Spooler is not running. You attempt to start it, but it fails.”
+
+
+
+ 🛠️ Environment
+
+| Component    | Details                 |
+
+| OS          | Windows 10 Client VM    |
+| Service     | Print Spooler           |
+| Dependencies | RPC, DCOM Launcher, etc. |
+| Event Viewer Log | System             |
+
+
+
+ 🧰 Tools Used
+
+| Tool        | Purpose                                              |
+
+| services.msc | To view service status and dependencies            |
+| Event Viewer | To identify service startup or failure events      |
+| Control Panel → Devices and Printers | To confirm service impact (printers missing) |
+| cmd / PowerShell | To test manual service start/stop              |
+
+
+
+ 🧪 Steps Performed
+
+1. Opened services.msc and located the Print Spooler service  
+2. Opened its Properties → Dependencies tab  
+   - Verified dependent services (e.g., RPC)  
+3. Set Print Spooler to “Manual” (instead of “Automatic”)  
+4. Stopped the Print Spooler service  
+5. Tried to start the Print Spooler manually  
+   - Service didn’t start immediately  
+   - Confirmed printers disappeared from Devices and Printers  
+6. Opened Event Viewer → Windows Logs → System  
+   - Found Event ID 7040:
+     > “The start type of the Print Spooler service was changed from auto start to demand start.”
+
+
+
+ 🔍 Logs Observed
+
+| Event ID | Meaning                                             |
+
+| 7040     | The startup type of the service was manually changed |
+| (No 7001/7034 in this run) | No crash or failure detected during test |
+
+🧠 Event 7040 tells us the service configuration was changed — which could explain why it doesn’t auto-start.
+
+
+
+ ✅ Final Outcome
+
+- Service failed to auto-start due to startup type being set to Manual  
+- Printers were unavailable until service was restarted  
+- After setting startup type back to “Automatic” and starting the service, printer functionality returned
+
+
+
+ 🧠 Lessons Learned
+
+- Services may fail silently if a required dependency is stopped or disabled  
+- Event ID 7040 can help trace when a service was reconfigured (manual vs automatic)  
+- Applications like printing or scanning can break simply because a background service isn’t running  
+- Services.msc + Event Viewer are essential tools for Tier 1 & Tier 2 troubleshooting
+
+
+
+ 
