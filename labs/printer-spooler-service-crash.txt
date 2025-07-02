@@ -1,4 +1,4 @@
- 🧪 Lab 4: Printer Not Working – Print Spooler Service Crash
+🧪 Lab 4: Printer Not Working – Print Spooler Service Crash
 
  📝 Summary
 
