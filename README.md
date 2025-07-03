@@ -22,7 +22,7 @@ Each lab includes:
 | 5️⃣ | Locked Account + Password Reset | [View Lab](labs/ad-password-reset-account-lockout.txt) |
 | 6️⃣ | IP Conflict – DHCP Troubleshooting | [View Lab](labs/dhcp-ip-conflict-troubleshooting.txt) |
 | 7️⃣ | Service Not Starting – Dependency Failure | [View Lab](labs/service-not-starting-dependency-failure.txt) |
-| 8️⃣ | Ticketing System Simulation (iTop) | Coming soon |
+| 8️⃣ | Ticketing System Simulation (iTop) | [View Lab](labs/itop-simulated-ticketing.txt) |
 
 
 
