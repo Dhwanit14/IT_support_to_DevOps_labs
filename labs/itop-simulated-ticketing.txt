@@ -1,0 +1,66 @@
+ 🧪 Lab 8: Simulated Ticketing System – iTop
+
+ 📝 Summary
+
+In this lab, I installed and configured the iTop open-source ITSM platform in my local lab. I used it to simulate 5 real-world helpdesk tickets that I’ve already performed in previous labs — following a full incident workflow: ticket creation, assignment, troubleshooting steps, resolution, and ticket closure.
+
+
+
+ 🛠️ Environment
+
+| Component             | Details                          |
+|----------------------|----------------------------------|
+| iTop Version         | iTop Community Edition (local)   |
+| Platform             | Installed on Windows Server (DC) |
+| Access URL           | http://localhost/itop            |
+| Database             | MySQL via XAMPP                  |
+
+
+ 🔧 Installation Steps
+
+1. Installed XAMPP on the Domain Controller (Apache + MySQL + PHP)
+2. Downloaded iTop Community Edition from combodo.com
+3. Extracted iTop to C:\xampp\htdocs\itop
+4. Created MySQL database via phpMyAdmin: database name itop
+5. Visited http://localhost/itop/setup to complete web installer
+6. Configured default admin account and logged in
+
+✅ iTop was successfully installed and accessed locally.
+
+
+ 🎫 Simulated Tickets (based on previous labs)
+
+| Ticket ID | Issue Summary                                | Status     | Related Lab |
+|-----------|----------------------------------------------|------------|-------------|
+| TKT-001   | User unable to log in due to password flag   | Closed     | Lab 1       |
+| TKT-002   | Access denied to shared Marketing folder      | Closed     | Lab 2       |
+| TKT-003   | User account locked after failed attempts     | Closed     | Lab 5       |
+| TKT-004   | Printer not working due to Print Spooler stop | Closed     | Lab 4 & 7   |
+| TKT-005   | DHCP client failed to get IP – conflict found | Closed     | Lab 6       |
+
+Each ticket included:
+- Summary and category
+- User (caller) and assigned technician (me)
+- Notes from diagnosis
+- Resolution actions
+- Final status: Closed
+
+
+🧠 What I Practiced
+
+- Creating tickets manually in iTop as Incident → User Request
+- Filling in proper ticket fields: Title, Priority, Category, User, Impact
+- Updating Worklog entries during each troubleshooting step
+- Assigning tickets to myself (as technician)
+- Changing status: New → Assigned → Resolved → Closed
+
+
+
+
+ 📘 Lessons Learned
+
+- Ticketing systems like iTop simulate real IT team workflows
+- Each lab ticket helped me practice documentation and workflow tracking
+- Good ticket habits = clear communication for users, coworkers, and audits
+- Even in self-study, building a habit of logging steps improves troubleshooting
+
