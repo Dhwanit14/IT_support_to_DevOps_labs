@@ -1,66 +1,63 @@
- 🛠️ IT Support to DevOps Labs
+🧪 IT Support to DevOps Labs
 
-This is my personal collection of hands-on labs where I practice real IT support and system admin tasks.
+This is my personal collection of hands-on labs focused on real-world IT support and system administration issues. Each lab simulates a ticket or scenario I might face as a Helpdesk Technician, Junior Sysadmin, or future DevOps Engineer.
 
-I worked on:
-- Learn how real-world problems happen in IT
-- Practice how to fix them step by step
-- Prepare myself for jobs like Helpdesk, Sysadmin, and DevOps
+All labs were completed on my own Windows Server + Client virtual lab.
 
 
+📚 Lab Index
 
- 📚 My Labs
+Each lab includes:  
+✅ A realistic issue scenario  
+🛠️ Tools used to troubleshoot  
+📘 Notes and logs (Event Viewer, services, permissions, etc.)  
+✅ Final fix and explanation
 
- Lab  Title  What It Covers 
-
- ✅ [Lab 1](labs/labslogon-issue-password-reset.txt) 
- Login Not Working 
- Fixed a login issue caused by password reset flag
- 
- ✅ [Lab 2](labs/folder-permission-denied.txt)  
-Access Denied to Shared Folder  
-Solved file access issue using NTFS and Share permissions 
-
- ✅ [Lab 3](labs/gpo-logon-denied.txt)  
-User Blocked by GPO  
-Fixed Group Policy that stopped user from logging in 
-
-🧪 More labs coming soon:
-- Lab 4: Printer not working (spooler issue)
-- Lab 5: VPN not connecting
-- Lab 6: AWS S3 website hosting with CLI
+| Lab | Title | Link |
+|-----|-------|------|
+| 1️⃣ | Domain Login Issue – Password Reset Conflict | [View Lab](labs/labslogon-issue-password-reset.txt) |
+| 2️⃣ | Shared Folder Access Denied – NTFS vs Share Permissions | [View Lab](labs/folder-permission-denied.txt) |
+| 3️⃣ | GPO Misconfiguration – Logon Denied | [View Lab](labs/gpo-logon-denied.txt) |
+| 4️⃣ | Print Spooler Crash – Printer Not Working | [View Lab](labs/printer-spooler-service-crash.txt) |
+| 5️⃣ | Locked Account + Password Reset | [View Lab](labs/ad-password-reset-account-lockout.txt) |
+| 6️⃣ | IP Conflict – DHCP Troubleshooting | [View Lab](labs/dhcp-ip-conflict-troubleshooting.txt) |
+| 7️⃣ | Service Not Starting – Dependency Failure | [View Lab](labs/service-not-starting-dependency-failure.txt) |
+| 8️⃣ | Ticketing System Simulation (iTop) | Coming soon |
 
 
 
- 🧰 Tools I Used
+🧰 Tools Used Across Labs
 
-These are the tools I used in the labs:
 - Windows Server 2019
-- Windows 10 (client)
+- Windows 10 (domain-joined)
 - Active Directory (ADUC)
-- Group Policy (GPMC)
+- Group Policy Management Console (GPMC)
 - Event Viewer
-- `gpresult` and `rsop.msc`
-- PowerShell
-- GitHub Desktop
-- Markdown
+- DHCP, DNS, File Services
+- Services.msc, gpresult, rsop.msc
+- iTop (open-source ticketing system)
+- Git, GitHub Desktop, Markdown
 
 
 
- 👨‍💻 About Me
+📌 Why I Built This Repo
 
-Dhwanit Shah  
-🎓 Computer Systems Technician (Conestoga College, 2025)  
-🎯 Goal: Become a Cloud / DevOps Engineer  
-📍 Kitchener, ON  
-📧 dhwanitshah16@gmail.com  
-
+🎯 To gain real IT troubleshooting experience, not just theory  
+🧪 To simulate issues helpdesk and sysadmins solve every day  
+📝 To practice documenting problems and resolutions like in a real ticketing system  
+📂 To build a portfolio I can show during job interviews
 
 
- 💬 Why This Repo Helps Me
 
-- I’m learning by doing, not just watching
-- I’m building a habit of documenting my work
-- I can show this repo in interviews or on LinkedIn
+🙋‍♂️ About Me
 
-Thanks for checking it out!
+Hi, I’m Dhwanit Shah 👋  
+🎓 Computer Systems Technician – Conestoga College (Graduating Aug 2025)  
+🛠️ Building my way into IT Support → Cloud → DevOps  
+📍 Based in Kitchener, Ontario  
+📧 dhwanitshah16@gmail.com
+LinkedIn Profile: https://www.linkedin.com/in/dhwanit-shah-0bb31323b/ 
+
+
+
+Thanks for checking out my lab notebook! ⭐
