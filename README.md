@@ -15,13 +15,13 @@ Each lab includes:
 
 | Lab | Title | Link |
 |-----|-------|------|
-| 1️⃣ | Domain Login Issue – Password Reset Conflict | [View Lab](labs/logon-issue-password-reset.md) |
-| 2️⃣ | Shared Folder Access Denied – NTFS vs Share Permissions | [View Lab](labs/folder-permission-denied.md) |
-| 3️⃣ | GPO Misconfiguration – Logon Denied | [View Lab](labs/gpo-logon-denied.md) |
-| 4️⃣ | Print Spooler Crash – Printer Not Working | [View Lab](labs/printer-spooler-service-crash.md) |
-| 5️⃣ | Locked Account + Password Reset | [View Lab](labs/ad-password-reset-account-lockout.md) |
-| 6️⃣ | IP Conflict – DHCP Troubleshooting | [View Lab](labs/dhcp-ip-conflict-troubleshooting.md) |
-| 7️⃣ | Service Not Starting – Dependency Failure | [View Lab](labs/service-not-starting-dependency-failure.md) |
+| 1️⃣ | Domain Login Issue – Password Reset Conflict | [View Lab](labs/labslogon-issue-password-reset.txt) |
+| 2️⃣ | Shared Folder Access Denied – NTFS vs Share Permissions | [View Lab](labs/folder-permission-denied.txt) |
+| 3️⃣ | GPO Misconfiguration – Logon Denied | [View Lab](labs/gpo-logon-denied.txt) |
+| 4️⃣ | Print Spooler Crash – Printer Not Working | [View Lab](labs/printer-spooler-service-crash.txt) |
+| 5️⃣ | Locked Account + Password Reset | [View Lab](labs/ad-password-reset-account-lockout.txt) |
+| 6️⃣ | IP Conflict – DHCP Troubleshooting | [View Lab](labs/dhcp-ip-conflict-troubleshooting.txt) |
+| 7️⃣ | Service Not Starting – Dependency Failure | [View Lab](labs/service-not-starting-dependency-failure.txt) |
 | 8️⃣ | Ticketing System Simulation (iTop) | Coming soon |
 
 
